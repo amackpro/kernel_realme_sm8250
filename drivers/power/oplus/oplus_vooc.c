@@ -2062,6 +2062,7 @@ void fw_update_thread(struct work_struct *work)
 			chip->vops->fw_check_then_recover(chip);
 			return;
 		}
+/* Will correct after adding REALMEUI support!!
 		 do {
 			ret = request_firmware_select(&fw, chip->fw_path, chip->dev);
 			if (!ret) {
@@ -2069,6 +2070,7 @@ void fw_update_thread(struct work_struct *work)
 			}
 		} while((ret < 0) && (--retry > 0));
 		chg_debug(" retry times %d, chip->fw_path[%s]\n", 5 - retry, chip->fw_path);
+*/
 		if(!ret) {
 			chip->firmware_data =  fw->data + 80 /* header */;
 			chip->fw_data_count =  fw->size - 80 /* header */ - 128 /* footer */;
